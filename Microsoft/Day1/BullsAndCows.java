@@ -4,8 +4,8 @@
  */
 class Solution {
     public String getHint(String secret, String guess) {
-        int x = 0; // bulls
-        int y = 0; // cows
+        int x = 0; // bulls - digits in the guess that are in the correct position
+        int y = 0; // cows  -  digits in the guess that are in your secret number but are located in the wrong position
         HashMap<Character,Integer> map = new HashMap<>();
 
         for(char c : secret.toCharArray()){
