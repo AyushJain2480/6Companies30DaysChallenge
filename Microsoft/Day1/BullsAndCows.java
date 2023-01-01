@@ -8,24 +8,21 @@ class Solution {
         int y = 0; // cows
         HashMap<Character,Integer> map = new HashMap<>();
 
-        for(char ch : secret.toCharArray()){
-           if(!map.containsKey(ch)){
-               map.put(ch,1);
-           }else{
-               map.put(ch , map.get(ch) + 1);
-           }
+        for(char c : secret.toCharArray()){
+           map.put(c, map.getOrDefault(c, 0) + 1);
         }
+
        for(int i = 0; i < guess.length(); i++){
-           char ch = guess.charAt(i);
-           if(map.containsKey(ch) && map.get(ch) != 0 && ch == secret.charAt(i)){
-               map.put(ch,map.get(ch) - 1);
+           char c = guess.charAt(i);
+           if(map.containsKey(c) && map.get(c) != 0 && c == secret.charAt(i)){
+               map.put(c,map.get(c) - 1);
                x++;
            }
        }
        for(int i = 0; i < guess.length(); i++){
-           char ch = guess.charAt(i);
-           if(map.containsKey(ch) && map.get(ch) != 0 && ch != secret.charAt(i)){
-               map.put(ch,map.get(ch) - 1);
+           char c = guess.charAt(i);
+           if(map.containsKey(c) && map.get(c) != 0 && c != secret.charAt(i)){
+               map.put(c,map.get(c) - 1);
                y++;
            }
        }
@@ -33,6 +30,9 @@ class Solution {
 
     }
 }
+
+
+
 
 
 
