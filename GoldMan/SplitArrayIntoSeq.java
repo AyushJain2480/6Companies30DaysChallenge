@@ -39,7 +39,7 @@
 // return true - If we can get through all integers and they either 
 // creating valid subsequence of 3 or more or they are just appending to the subseq which is already present.
 
-https://leetcode.com/problems/split-array-into-consecutive-subsequences/solutions/3021756/using-hashmaps-in-java/
+[My LeetCode Post Solution](https://leetcode.com/problems/split-array-into-consecutive-subsequences/solutions/3021756/using-hashmaps-in-java/).
 
 class Solution {
     public boolean isPossible(int[] nums) {
