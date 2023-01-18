@@ -87,18 +87,18 @@ class Solution {
         return cnt;
     }
     
-    public void dfs(int prev, int num, int n){
-        
-        //append 0
-        if(num*2 <= n){
-            cnt++;
-            dfs(0, num*2, n);
+    // n = 10
+    public void dfs(int prev, int num , int n){
+        // append 0
+       if(num * 2 <= n){ // first check before appending 0 is it exceeed after appending if yes dont append
+           // (1 * 2 <= 10) means we can append 0 
+          count++; // increase the count becoz it is safe  count = 3
+          dfs(0,num * 2, n);  // 10 <-- multiplying it by 2 becoz  (1 is shifted to left 1 time ){2^1, 2^0} so it will multiplied by 2
         }
-        
-        //append 1
-        if(prev == 0 && num*2+1 <= n){
-            cnt++;
-            dfs(1, num*2+1, n);
+        // append 1
+       if(prev != 1 && num * 2 + 1 <= n){ // if prev=1 means it is consec 1 so dont append because we will call dfs only for non consec 1              
+           count++; // for eg (100) prev = 0 so no problem there and 100 is 4 so 4 * 2 + 1 (9 <= 10) its safe 
+           dfs(1,num * 2 + 1 , n); // 1001 --> 1 is shifted to the left so 2 multiplied and 1 is appended at 2^0 position so add 1
         }
     }
 }
