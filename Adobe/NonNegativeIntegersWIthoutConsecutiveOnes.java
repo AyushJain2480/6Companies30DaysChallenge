@@ -29,8 +29,8 @@ class Solution {
     }
 }
 
-
-// Optimised version
+ 
+// Optimised version - this one is accepted but its too tough to get the idea 
 class Solution {
     public int findIntegers(int n) {
         // f(k) = f(k-1) + f(k-2), where k>=2, f(0) = 1, f(1) =2;
@@ -65,4 +65,40 @@ class Solution {
         // including it's self.
         return ans +1;
 }
+}
+
+
+// I personally love this dfs solution its taking more time buts its also accepted 
+
+class Solution {
+// We start with 1. And then append 0 everytime and 1 only when previous char is not 1.
+// While appending we calculate the value and stop when it exceed n.
+
+// Appending 0 means we multiply the number by 2.
+// (Example : num = 101 (5). Append 0; num = 1010 which is nothing but 5*2 = 10)
+
+// Appending 1 means we multiply the number by 2 and add 1
+    
+	// initial count is 2 for 0 and 1
+    int cnt = 2;
+    
+    public int findIntegers(int n) {
+        dfs(1, 1, n);
+        return cnt;
+    }
+    
+    public void dfs(int prev, int num, int n){
+        
+        //append 0
+        if(num*2 <= n){
+            cnt++;
+            dfs(0, num*2, n);
+        }
+        
+        //append 1
+        if(prev == 0 && num*2+1 <= n){
+            cnt++;
+            dfs(1, num*2+1, n);
+        }
+    }
 }
