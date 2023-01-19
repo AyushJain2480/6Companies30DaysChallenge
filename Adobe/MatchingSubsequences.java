@@ -25,4 +25,28 @@ class Solution {
     }
 }
 
-//
+// a better brute force  - TLE
+class Solution {
+    int count = 0;
+    public int numMatchingSubseq(String s, String[] words) {
+        for(String word : words){
+            if(isSubsequence(word, s)){
+                count++;
+            }
+        }
+       return count;
+    }  
+     public boolean isSubsequence(String s, String t) {
+        if(s.length() == 0){
+            return true;
+        }
+        int j = 0;
+        for(int i = 0; i < t.length(); i++){
+            if(t.charAt(i) == s.charAt(j)){
+                j++;
+            }
+            if(j >= s.length()) return true;
+        }
+        return false;
+    }
+}
