@@ -55,16 +55,21 @@ class Solution {
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
         Map<String, Integer> map = new HashMap<>();
-        for (String word : words) {
-            map.put(word, map.getOrDefault(word, 0) + 1);
+        for (String w : words) {
+            map.put(w, map.getOrDefault(w, 0) + 1);
         }
         int ans = 0;
-        for (String word : map.keySet()) {
-            int i = 0, j = 0;
-            while (i < s.length() && j < word.length()) {
-                if (s.charAt(i++) == word.charAt(j)) j++;
+        for (String w : map.keySet()) {
+            int j = 0;
+            for(int i = 0; i < s.length(); i++){
+                if(s.charAt(i) == w.charAt(j)){
+                    j++;
+                }
+                if(j >= w.length()){
+                    ans += map.get(w);
+                    break;
+                }
             }
-            if (j == word.length()) ans += map.get(word);
         }
         return ans;
     }
