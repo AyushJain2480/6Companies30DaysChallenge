@@ -1,7 +1,4 @@
- // This one is brute force of brute force because generating all subsequences and than checking all the word takes a hell of time.
- 
- // At each step we have two choices either select a char or not select it.(using backtracking - give TLE)
-
+// backtracking approach - generating all subsequences
 class Solution { 
     Set<String> set = new HashSet<>();
     int count = 0;
@@ -28,4 +25,4 @@ class Solution {
     }
 }
 
-// 
+//
