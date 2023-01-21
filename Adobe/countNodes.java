@@ -36,3 +36,32 @@ class Solution {
     inorder(root.right);
     }
 }
+// Another solution
+class Solution {
+    int ans = 0;
+    public int averageOfSubtree(TreeNode root) {
+        traversal(root);
+        return ans;
+    }
+   
+    public void traversal(TreeNode root){
+        if(root == null){
+            return;
+        }
+        if((sum(root) / count(root)) == root.val) ans++;
+        traversal(root.left);
+        traversal(root.right);
+    }
+
+    public int sum(TreeNode root){
+       if(root == null) return 0;
+       return sum(root.left) + sum(root.right) + root.val;
+    }
+
+    public int count(TreeNode root){
+        if(root == null) return 0;
+        return count(root.left) + count(root.right) + 1;
+    }
+    
+}
+   
