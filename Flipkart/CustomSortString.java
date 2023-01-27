@@ -66,3 +66,31 @@ class Solution {
         return res; 
     }
 }
+
+class Solution {
+    public String customSortString(String order, String s) {
+        
+        Map<Character,Integer> map = new HashMap<>();
+        StringBuilder sb = new StringBuilder();
+        for(char ch : s.toCharArray()){
+            map.put(ch,map.getOrDefault(ch,0) + 1);
+        }
+    
+        for(char ch : order.toCharArray()){
+            if(!map.containsKey(ch)) continue; 
+            int freq = map.get(ch);
+            while(freq-- > 0){
+                sb.append(ch);
+            }
+            map.remove(ch); 
+        }
+        
+        for(char ch : map.keySet()){
+            int freq = map.get(ch);
+            while(freq-- > 0){
+               sb.append(ch);
+            }
+        }
+        return sb.toString(); 
+    }
+}
