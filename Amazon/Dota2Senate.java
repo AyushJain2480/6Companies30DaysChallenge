@@ -1,4 +1,8 @@
-// Its really hard to solve this problem by using circular singly linked list it's not the best approach but it's accepted :)
+// The time complexity of this solution is O(n^2) where n is the length of the input string "senate". 
+// This is because the "banOpponent" method iterates over the linked list to find the next non-banned node with the opposite party, 
+// which has a time complexity of O(n). And this method is called repeatedly until one of the parties is eliminated, which could happen
+// at most n times, resulting in an overall time complexity of O(n^2).
+
 class Node{
     char data;
     Node next;
