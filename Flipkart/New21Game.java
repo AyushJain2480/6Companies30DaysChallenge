@@ -1,4 +1,4 @@
-    
+// I consider this question as hard as **    
 // In the game, there are cards with values between 1 and W. The goal is to get a score of K or more points, and the maximum score you can have is N. 
 // The code calculates the probability of reaching K or more points by using a mathematical formula.
 
@@ -30,7 +30,10 @@ public double new21Game(int N, int K, int W) {
             
             // adjust the tail end
             if (i - W >= 0)
-                Wsum -= dp[i - W];
+                Wsum = Wsum -  dp[i - W];
         }
         return res;
     }
+// We are adding the probabilities from k to n because the goal of the game is to get a score of K or more points.
+// If the score is less than K, the player loses. So, we want to find the sum of the probabilities of getting K or more points.
+// That is why we only add the probabilities from k to n.
