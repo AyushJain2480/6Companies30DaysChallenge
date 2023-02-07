@@ -87,4 +87,96 @@ class StockPrice {
         return min[1];
     }
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ TLE SOLUTIONS
+// Storing keys only , previously we are storing the object itself
+// sorting on the basis of values 
+// we can store the values also - so that you can see that values are 
+// arranged in order (max/min)
+
+   class StockPrice {
+    
+    Map<Integer,Integer> map = new HashMap<>();
+    Integer latestTimestamp = 0;
+    // decreasing order max first
+    PriorityQueue<Integer> maxPQ = new PriorityQueue<>((a,b)->{
+        return b - a;
+    });
+    
+    // increasing order min first
+    PriorityQueue<Integer> minPQ = new PriorityQueue<>((a,b)->{
+        return a - b;
+    });
+    
+    public StockPrice() {
+        
+    }
+    
+    public void update(int timestamp, int price) {
+        if(map.containsKey(timestamp)){
+           int previousPrice = map.get(timestamp);
+           maxPQ.remove(previousPrice);
+           minPQ.remove(previousPrice);
+        }
+        map.put(timestamp, price);
+        latestTimestamp = Math.max(timestamp, latestTimestamp);
+        maxPQ.add(price);
+        minPQ.add(price); 
+    }
+    
+    public int current() {
+        return map.get(latestTimestamp);
+    }
+
+    public int maximum() {
+        return maxPQ.peek();
+    }
+    
+    public int minimum() {
+       return minPQ.peek();
+    }
+}
+
+
+   class StockPrice {
+    
+    Map<Integer,Integer> map = new HashMap<>();
+    Integer latestTimestamp = 0;
+    // decreasing order max first
+    PriorityQueue<Integer> maxPQ = new PriorityQueue<>((a,b)->{
+        return b - a;
+    });
+    
+    // increasing order min first
+    PriorityQueue<Integer> minPQ = new PriorityQueue<>((a,b)->{
+        return a - b;
+    });
+    
+    public StockPrice() {
+        
+    }
+    
+    public void update(int timestamp, int price) {
+          map.put(timestamp, price);
+          latestTimestamp = Math.max(timestamp, latestTimestamp);
+          maxPQ = new PriorityQueue<>((a, b) -> map.get(b) - map.get(a));
+          maxPQ.addAll(map.keySet());
+          minPQ = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
+          minPQ.addAll(map.keySet());
+    }
+    
+    public int current() {
+        return map.get(latestTimestamp);
+    }
+
+    public int maximum() {
+        Integer key = maxPQ.peek();
+        return map.get(key);
+    }
+    
+    public int minimum() {
+       Integer key = minPQ.peek();
+        return map.get(key);
+    }
+}
 
