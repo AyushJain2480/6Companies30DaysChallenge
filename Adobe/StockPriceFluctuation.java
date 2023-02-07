@@ -88,7 +88,7 @@ class StockPrice {
     }
 }
 --------------------------------------------------------------------------------------------------------------------------------------------------------
- TLE SOLUTIONS
+ TLE SOLUTIONS - In my opinion TLE solutions will help you alot - getting TLE is not a bad thing its far better than writing wrong code.
 // Storing keys only , previously we are storing the object itself
 // sorting on the basis of values 
 // we can store the values also - so that you can see that values are 
