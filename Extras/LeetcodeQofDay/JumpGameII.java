@@ -46,3 +46,23 @@ class Solution {
 
 // Approach 4
 // Ladder and Stairs - O(N) - Linear
+public int jump(int[] arr) {
+        int n = arr.length;
+        if (n <= 1) {
+            return 0;
+        }
+        int ladder = arr[0];
+        int stairs = arr[0];
+        int jump = 1;
+        for (int level = 1; level < n - 1; level++) {
+            if (level + arr[level] > ladder) {
+                ladder = level + arr[level];
+            }
+            stairs -= 1;
+            if (stairs == 0) {
+                jump += 1;
+                stairs = ladder - level;
+            }
+        }
+        return jump;
+    }
