@@ -46,6 +46,9 @@ class Solution {
 
 // Approach 4
 // Ladder and Stairs - O(N) - Linear
+// At Every Index you collect a ladder keep it if it is large enough and throw it if it is small
+// and keep climbing your current ladder. If your current ladder is over use the ladder that you have stored.
+
 public int jump(int[] arr) {
         int n = arr.length;
         if (n <= 1) {
