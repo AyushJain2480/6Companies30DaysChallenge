@@ -1,3 +1,10 @@
+// In the given code, the odd values in the input array are first converted to even values by multiplying them by 2. The reason for doing this is that we want to find the minimum possible deviation, which is the difference between the maximum and minimum values in the array, after applying a certain operation to all the values.
+
+// Now, we can only apply the operation of dividing an element by 2, if it is an even number. So, by converting all odd values to even, we are ensuring that we can apply the operation to all the elements in the array.
+
+// Additionally, by converting odd values to even, we are not changing the maximum possible deviation that we can get after applying the operation. This is because, if an odd value is the maximum value in the array, then its even counterpart (after multiplication by 2) will still be the maximum value in the array after applying the operation of dividing by 2. Therefore, the maximum possible deviation remains the same.
+
+// Hence, converting odd values to even makes it easier to find the minimum possible deviation by allowing us to apply the operation of dividing by 2 to all the elements in the array.
 class Solution {
     public int minimumDeviation(int[] nums) {
         // First create a priority Queue
