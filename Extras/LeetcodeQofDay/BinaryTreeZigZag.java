@@ -60,4 +60,34 @@ class Solution {
     }    
 }
 
+class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+         Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        queue.offer(root);
+        boolean zigzag = false;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> level = new ArrayList<>(); // list for each level 
+            for(int i = 0; i < size; i++){
+                TreeNode pop = queue.poll();
+                level.add(pop.val); 
+                if(pop.left != null){
+                    queue.offer(pop.left);
+                }
+                if(pop.right != null){
+                    queue.offer(pop.right);
+                }
+            }
+            res.add(level);
+        }
+        List<List<Integer>> reverseList = new ArrayList<>();
+        for(List<Integer> list : res){
+            reverseList.add(0,list);
+        }
+        return reverseList;
+    }
+}
+
 
