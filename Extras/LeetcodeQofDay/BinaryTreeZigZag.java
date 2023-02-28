@@ -89,5 +89,27 @@ class Solution {
         return reverseList;
     }
 }
-
+// simple no need to store every elements of each level store the first element of each level or just update it.
+class Solution {
+    Queue<TreeNode> queue = new LinkedList<>();
+    int result = 0;
+    public int findBottomLeftValue(TreeNode root) {
+        if(root == null) return 0;
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){
+                TreeNode pop = queue.poll(); 
+                if(i == 0) result = pop.val; // update the first value of each lvl 1,2,4,7
+                if(pop.left != null){
+                    queue.offer(pop.left);
+                }
+                if(pop.right != null){
+                    queue.offer(pop.right);
+                }
+            }
+        }
+        return result; // at last level it is updated with 7 
+    }
+}
 
