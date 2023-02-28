@@ -1,3 +1,4 @@
+ // If a serialization is correct, diff should never be negative and diff will be zero when finished.
 class Solution {
     public boolean isValidSerialization(String preorder) {
         String[] nodes = preorder.split(",");
