@@ -11,6 +11,21 @@
 // each non-leaf node creates two edges
 // whenever edges are smaller than 0, return false, which means number of hashtag(#) is too much
 // Finally, edges should be zero to meet the 1st constraint which is number of nodes == number of edges + 1
+
+// Further explanation
+// This solution works for verifying a preorder serialization because it uses the fact that a valid serialization of a binary tree must satisfy two conditions:
+
+// The number of non-null nodes in the tree is one more than the number of null nodes.
+
+// The number of null nodes in the tree is one more than the number of edges in the tree.
+
+// The algorithm splits the preorder string into an array of node values. It initializes a variable "edges" to 1, which represents the number of edges in an empty tree. It then loops through the nodes in the array, and for each node, it decrements the "edges" variable to account for the edge that connects the current node to its parent. If the "edges" variable becomes negative at any point, the algorithm returns false because it indicates that the number of null nodes in the tree exceeds the number of edges.
+
+// If the current node is not null (i.e., it has a non-# value), the algorithm increments the "edges" variable by 2 to account for the two edges that connect the current node to its two children.
+
+// Finally, the algorithm checks if the "edges" variable is 0, which indicates that the number of null nodes in the tree is one more than the number of edges, satisfying the second condition of a valid serialization. If the "edges" variable is not 0, the algorithm returns false.
+
+// Overall, the algorithm checks both conditions of a valid serialization and returns true if the preorder string represents a valid binary tree and false otherwise.
  
  
 class Solution {
