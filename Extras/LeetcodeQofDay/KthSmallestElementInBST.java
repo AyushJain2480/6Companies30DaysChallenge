@@ -5,6 +5,13 @@
 // now going in ascending order it will visit 2 so we count it as 2
 // now going in ascending order it will visit 3 so we count it as 3rd smallest
 // as we want the 3rd smallest number our ans is ready.
+
+
+Preorder traversal is useful when you need to create a copy of a tree, or when you want to visit the root node first before its children.
+
+Postorder traversal is useful when you need to delete a tree, or when you want to visit the leaves first before their parent nodes.
+
+Inorder traversal is useful when you want to print out the nodes of a tree in sorted order, or when you want to evaluate expressions in infix notation.
 class Solution{
 int count = 0;
 int result = Integer.MIN_VALUE;
